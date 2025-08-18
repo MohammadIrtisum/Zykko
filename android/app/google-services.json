@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "491223416451",
+    "project_id": "meassageapp-dc3cb",
+    "storage_bucket": "meassageapp-dc3cb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491223416451:android:5bcca80133953f879225b6",
+        "android_client_info": {
+          "package_name": "com.example.meassage_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ4Sa0l8gnfx2sWpJeVTiXwsfPJwOC74A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
