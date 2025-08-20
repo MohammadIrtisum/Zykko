@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:meassage_app/Screen/Login/login-screen.dart';
 import 'package:meassage_app/Screen/Splash/splash-screen.dart';
+import 'package:meassage_app/Screen/signUp/sign_up.dart';
 
 import 'firebase_options.dart';
 
