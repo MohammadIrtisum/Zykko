@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:meassage_app/Screen/bottomNav/bottom_nav.dart';
 import 'package:meassage_app/Screen/signUp/sign_up.dart';
 import 'package:meassage_app/widget/ui-helper.dart';
 
@@ -28,7 +29,11 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
             SizedBox(height: 9,),
-            Uihelper.CustomButton(buttonName: "Log in", callback: () {}),
+            Uihelper.CustomButton(buttonName: "Log in", callback: () {
+              Navigator.pushReplacement(context, 
+               MaterialPageRoute(builder: (context) => BottomNavScreen())
+              );
+            }),
             SizedBox(height: 19,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
