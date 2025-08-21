@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:meassage_app/Screen/Login/login-screen.dart';
 import 'package:meassage_app/Screen/Splash/splash-screen.dart';
-import 'package:meassage_app/Screen/signUp/sign_up.dart';
-
+import 'package:meassage_app/responsive/mobile_screen_layout.dart';
+import 'package:meassage_app/responsive/responsive_layout_screen.dart';
+import 'package:meassage_app/responsive/web_screen_layout.dart';
+import 'package:meassage_app/utils/colors.dart';
 import 'firebase_options.dart';
 
 void main() async{
@@ -29,10 +30,9 @@ class MyApp extends StatelessWidget {
        
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       // ),
-      // theme: ThemeData.dark().copyWith(
-      //   scaffoldBackgroundColor: mobileBackgroundColor,
-      // ),
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: mobileBackgroundColor,
+      ),
       home: Scaffold(
         body: SplashScreen(),
         //const ResponsiveLayoutScreen(webScreenLayout: WebScreenLayout(), mobileScreenLayout: MobileScreenLayout())
