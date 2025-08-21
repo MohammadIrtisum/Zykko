@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:meassage_app/resources/storage_mathod.dart';
 import 'package:meassage_app/screen/signUp/sign_up.dart';
 
 class AuthMathod {
@@ -13,7 +14,7 @@ class AuthMathod {
     required String email,
     required String password,
     required String username,
-    // required Uint8List file,
+    required Uint8List file,
   }) async{
     String res = "Some error occured";
     try {
@@ -22,15 +23,19 @@ class AuthMathod {
       //   password: password,
       // );
       // res = "Success";
-      if( email.isNotEmpty  & email.contains("@") &&
-          password.isNotEmpty && password.length > 6 &&
-          username.isNotEmpty      ) {
+      if( email.isNotEmpty  ||
+          password.isNotEmpty ||
+          username.isNotEmpty  ||
+          file !=null
+            ) {
             // register user
        UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
           email: email,
           password: password,
         );
         print(userCredential.user!.uid);
+
+        String profilePicUrl = await StorageMethod().uploadImageToStorage("profilePic", file, false);
         // add user to database
         await _firestore.collection("users").doc(userCredential.user!.uid).set({
           "username": username,
@@ -38,6 +43,7 @@ class AuthMathod {
           "uid": userCredential.user!.uid,
           "followers": [],
           "following": [],
+          "profilePic": profilePicUrl,
         });
         res = "Success";
       } else {
