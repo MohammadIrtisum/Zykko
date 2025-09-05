@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meassage_app/Screen/Splash/splash-screen.dart';
+import 'package:meassage_app/Screen/texting/test.dart';
 import 'package:meassage_app/responsive/mobile_screen_layout.dart';
 import 'package:meassage_app/responsive/responsive_layout_screen.dart';
 import 'package:meassage_app/responsive/web_screen_layout.dart';
@@ -13,6 +15,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await dotenv.load(fileName: ".env");
+  print(dotenv.env['Cloudinary_Cloud_Name']);
   runApp(const ProviderScope(child: MyApp()));
 }
 

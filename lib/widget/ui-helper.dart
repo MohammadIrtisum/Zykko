@@ -9,7 +9,8 @@ class Uihelper {
     required TextInputType textInputType,
     String? errorText,
     ValueChanged<String>? onChanged,
-    //bool showError = false, 
+    // String? Function(String?)? validator,
+    //bool showError = false,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,6 +41,7 @@ class Uihelper {
               obscureText: inhide,
               keyboardType: textInputType,
               onChanged: onChanged,
+              
             ),
           ),
         ),

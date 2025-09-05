@@ -59,7 +59,8 @@ class AuthMethod {
         email: email, 
         password: password,
       );
-
+       print(cred.user!.uid);
+       
       await _firestore.collection("users").doc(cred.user!.uid).set({
         "username": username,
         "email": email,
@@ -77,7 +78,7 @@ class AuthMethod {
   }
   // user login
   Future<String> loginUser({
-    required String email,
+    required String email ,
     required String password,
   }) async {
     String res = "Some error occured";
@@ -87,7 +88,7 @@ class AuthMethod {
       }
       await _auth.signInWithEmailAndPassword(
         email: email, 
-        password: password
+        password: password,
         );
       res = "Success";
     } catch (e) {
@@ -95,12 +96,12 @@ class AuthMethod {
     }
     return res;
   }
-
   // user logout
   Future<void> logoutUser() async {
     await _auth.signOut();
   }
 }
+
 
 final authMethodProvider = Provider<AuthMethod>((ref) {
   return AuthMethod();
